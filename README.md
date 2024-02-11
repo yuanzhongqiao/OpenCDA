@@ -1,123 +1,149 @@
-# OpenCDA
-[![Build Status](https://travis-ci.com/ucla-mobility/OpenCDA.svg?branch=develop)](https://travis-ci.com/ucla-mobility/OpenCDA)
-[![Coverage Status](https://coveralls.io/repos/github/ucla-mobility/OpenCDA/badge.svg?branch=feature/readme_revise)](https://coveralls.io/github/ucla-mobility/OpenCDA?branch=feature/readme_revise)
-[![Documentation Status](https://readthedocs.org/projects/opencda-documentation/badge/?version=latest)](https://opencda-documentation.readthedocs.io/en/latest/?badge=latest)
-
-
-OpenCDA is an open co-simulation-based **research/engineering framework** integrated with prototype cooperative driving automation (CDA; see [SAE J3216](https://www.sae.org/standards/content/j3216_202005/)) pipelines as well as regular automated driving components (e.g., perception, localization, planning, control).  It not only enables CDA evaluation in a CARLA + SUMO co-simulation environment but also provides a rich library of source codes of CDA research pipelines. 
-
-In collaboration with  [U.S.DOT CDA Research](https://its.dot.gov/cda/) and the [FHWA CARMA Program](https://highways.dot.gov/research/operations/CARMA), OpenCDA, as an open-source project, is designed and built to support <strong>early-stage fundamental research </strong>  for CDA research and development. Through collaboration with CARMA Collaborative, this tool provides a unique capability to the CDA research community and will interface with the [CARMA XiL tools](https://github.com/usdot-fhwa-stol/carma-simulation) being developed by U.S.DOT to support more advanced simulation testing of CDA Features.
-
-
-The key features of OpenCDA are:
-* <strong> Research Pipeline </strong>: OpenCDA provides rich research pipelines (i.e., open-source codes for basic and advanced CDA modules, such as platooning, cooperative perception).
-* <strong>Integration</strong>: OpenCDA utilizes CARLA and SUMO separately, as well as integrates them together.
-* <strong> Full-stack Simulation</strong>: OpenCDA provides a simple prototype automated driving and cooperative driving platform, <strong>all in Python</strong>, that contains perception, localization, planning, control, and V2X communication modules.
-* <strong>Modularity</strong>: OpenCDA is highly modularized. 
-* <strong>Benchmark</strong>: OpenCDA offers benchmark testing scenarios, benchmark baseline maps, state-of-the-art benchmark algorithms, and benchmark evaluation metrics.
-* <strong>Connectivity and Cooperation</strong>: OpenCDA supports various levels and categories of cooperation between CAVs in simulation. This differentiates OpenCDA from other single vehicle simulation tools.
-
-
-Users could refer to [OpenCDA documentation](https://opencda-documentation.readthedocs.io/en/latest/) for more details.
-
-## What's New
-### March 2023
-* OpenCDA now supports Docker Installation! Many thanks to @GoodarzMehr!
-* OpenCDA has make the configuration system better! We provide a `default.yaml` as a template for all scenarios. Users now can
-only change the parts that are different from the default parameters, which makes the configuration file much cleaner.
-
-### Jan 2023
-* Our paper [The OpenCDA Open-source Ecosystem for Cooperative Driving Automation Research](https://ieeexplore.ieee.org/document/10045043)
-has been accepted by **IEEE Transactions on Intelligent Vehicles**. We extend the scope of the original OpenCDA simulation framework to a
-ecosystem, which contains a model zoo, a suite of driving simulators at various resolutions, large-scale real-world and simulated datasets, complete devel-opment toolkits for benchmark training/testing, and a scenario database/generator.
-### July 2022
-* Powered by OpenCDA, our paper [V2X-ViT: Vehicle-to-Everything Cooperative
-Perception with Vision Transformer](https://arxiv.org/pdf/2203.10638.pdf) has been accepted by **ECCV2022**! Check the codebase [v2x-vit](https://github.com/DerrickXuNu/v2x-vit) if interested.
-### March 2022
-* HD Map manager is online! It currently supports generating rasterization map that includes road topology, traffic light info, and dynamic objects around each cav in real-time. This can be
-used for RL planning, HD Map learning, scene understanding, etc.
-
-### Feb 2022
-* Our paper [*OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication*](https://arxiv.org/abs/2109.07644)
-  has been accepted by ICRA 2022! It utilizes  the offline Cooperative Perception(data dumping) function in OpenCDA. Check the benchmark codebase [OpenCOOD](https://github.com/DerrickXuNu/OpenCOOD) of OPV2V if interested.
-### Oct 2021
- * CARLA 0.9.12 now supported; Different weather conditions are supported.
- * Better traffic management supported: users now can set a customized range to background cars.
-
-
-## Major Components
-![teaser](docs/md_files/images/OpenCDA_new_diagrams.png)
-
-OpenCDA  consists of four major component: <strong>Cooperative Driving System</strong>,  <strong>Co-Simulation Tools</strong>, <strong>Data Manager and Repository</strong>,
-and  <strong>Scenario Manager</strong>.
-
-Check the [OpenCDA Introduction](https://opencda-documentation.readthedocs.io/en/latest/md_files/introduction.html) for more details.
-
-
-## Get Started
-
- ![teaser](docs/md_files/images/platoon_joining_2lanefree_complete.gif)
-
-
-### Users Guide
-* [Overview](https://opencda-documentation.readthedocs.io/en/latest/md_files/introduction.html)
-* [Installation](https://opencda-documentation.readthedocs.io/en/latest/md_files/installation.html)
-* [Quick Start](https://opencda-documentation.readthedocs.io/en/latest/md_files/getstarted.html)
-* [Logic Flow](https://opencda-documentation.readthedocs.io/en/latest/md_files/logic_flow.html)
-* [Traffic Generation](https://opencda-documentation.readthedocs.io/en/latest/md_files/traffic_generation.html)
-
-
-Note: We continuously improve the performance of OpenCDA. Currently, it is mainly tested in our customized maps and
- Carla town06 map; therefore, we <strong>DO NOT </strong> guarantee the same level of  robustness in other maps.
-
-### Developer Guide
-
-*  [Class Design](https://opencda-documentation.readthedocs.io/en/latest/md_files/developer_tutorial.html)
-*  [Customize Your Algorithms](https://opencda-documentation.readthedocs.io/en/latest/md_files/customization.html)
-*  [API Reference](https://opencda-documentation.readthedocs.io/en/latest/modules.html) <br>
-
-
-### Contribution Rule
-We welcome your contributions.
-- Please report bugs and improvements by submitting issues.
-- Submit your contributions using [pull requests](https://github.com/ucla-mobility/OpenCDA/pulls).
- Please use [this template](.github/PR_TEMPLATE.md) for your pull requests.
-
-
-
-## Citation
- If you are using our OpenCDA framework or codes for your development, please cite the following paper:
- ```bibtex
-@inproceedings{xu2021opencda,
-  title={OpenCDA: an open cooperative driving automation framework integrated with co-simulation},
-  author={Xu, Runsheng and Guo, Yi and Han, Xu and Xia, Xin and Xiang, Hao and Ma, Jiaqi},
-  booktitle={2021 IEEE International Intelligent Transportation Systems Conference (ITSC)},
-  pages={1155--1162},
-  year={2021},
-  organization={IEEE}
-}
-```
-The arxiv link to the paper:  https://arxiv.org/abs/2107.06260
-
-Also, under this LICENSE, OpenCDA is for non-commercial research only. Researchers can modify the source code for their own research only. Contracted work that generates corporate revenues and other general commercial use are prohibited under this LICENSE. See the LICENSE file for details and possible opportunities for commercial use.
-
-## Contributors
-OpenCDA is mainly supported by the [UCLA Mobility Lab](https://mobility-lab.seas.ucla.edu/). <br>
-
-### Lab Principal Investigator:
-- Dr. Jiaqi Ma ([linkedin](https://www.linkedin.com/in/jiaqi-ma-17037838/),
-               [UCLA Samueli](https://samueli.ucla.edu/people/jiaqi-ma/))
-
-### Project Lead: <br>
- - Runsheng Xu ([linkedin](https://www.linkedin.com/in/runsheng-xu/), [github](https://github.com/DerrickXuNu))  <br>
-
-### Team Members: 
- - Xu Han ([linkedin](https://linkedin.com/in/xu-han-12851a64), [github](https://github.com/xuhan417))
- - Hao Xiang ([linkedin](https://www.linkedin.com/in/hao-xiang-42bb5a1b2/), [github](https://github.com/XHwind))
- - Zhaoliang Zheng([linkedin](https://www.linkedin.com/in/zhaoliang-zheng-905532171/)
- - Zonglin Meng([linkedin](https://www.linkedin.com/in/zonglin-meng-a393b31ab/)
- - Dr. Xin Xia ([linkedin](https://www.linkedin.com/in/yi-guo-4008baaa/))
-
-### External Contributor Acknowledgements
-- We would  like to acknowledge the great contributions from UC Davis Professor [Junshan Zhang's](https://faculty.engineering.ucdavis.edu/jzhang/) group,  particularly to Dr. [Wei Shao](https://scholar.google.com.au/citations?user=zbqNhWwAAAAJ&hl=en), who played a crucial role in this collaboration. Their expertise enabled the seamless integration of openScenario with OpenCDA.
-- We would like to thank @GoodarzMehr for his outstanding contribution in creating the OpenCDA Dockerfile.
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content-opencda" class="anchor" aria-hidden="true" tabindex="-1" href="#opencda"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开放CDA</font></font></h1>
+<p dir="auto"><a href="https://travis-ci.com/ucla-mobility/OpenCDA" rel="nofollow"><img src="https://camo.githubusercontent.com/e0e4257439001da90a9dcd4b6ccc77126d9b8634a9f6e0a50c379f9d32956714/68747470733a2f2f7472617669732d63692e636f6d2f75636c612d6d6f62696c6974792f4f70656e4344412e7376673f6272616e63683d646576656c6f70" alt="构建状态" data-canonical-src="https://travis-ci.com/ucla-mobility/OpenCDA.svg?branch=develop" style="max-width: 100%;"></a>
+<a href="https://coveralls.io/github/ucla-mobility/OpenCDA?branch=feature/readme_revise" rel="nofollow"><img src="https://camo.githubusercontent.com/c86e34e0c615fe6937c533ad9a628c17201d9af3283475224e13594f33f54c11/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f75636c612d6d6f62696c6974792f4f70656e4344412f62616467652e7376673f6272616e63683d666561747572652f726561646d655f726576697365" alt="覆盖状态" data-canonical-src="https://coveralls.io/repos/github/ucla-mobility/OpenCDA/badge.svg?branch=feature/readme_revise" style="max-width: 100%;"></a>
+<a href="https://opencda-documentation.readthedocs.io/en/latest/?badge=latest" rel="nofollow"><img src="https://camo.githubusercontent.com/a99b333bb55b35a95761a99d62c4b87dec2c36ef01dbbd7be8f46c98611ec8ff/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f6f70656e6364612d646f63756d656e746174696f6e2f62616467652f3f76657273696f6e3d6c6174657374" alt="文件状态" data-canonical-src="https://readthedocs.org/projects/opencda-documentation/badge/?version=latest" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA 是一个基于联合仿真的开放式</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">研究/工程框架</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，集成了原型协同驾驶自动化（CDA；请参阅</font></font><a href="https://www.sae.org/standards/content/j3216_202005/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SAE J3216</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）管道以及常规自动驾驶组件（例如感知、定位、规划、控制）。它不仅能够在 CARLA + SUMO 联合仿真环境中进行 CDA 评估，而且还提供丰富的 CDA 研究流程源代码库。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA 作为一个开源项目，与</font></font><a href="https://its.dot.gov/cda/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">USDOT CDA Research</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://highways.dot.gov/research/operations/CARMA" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FHWA CARMA 计划</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">合作  ，旨在支持 CDA 研究和开发的</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">早期基础研究</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">  。通过与 CARMA Collaborative 合作，该工具为 CDA 研究社区提供了独特的功能，并将与</font><font style="vertical-align: inherit;">USDOT 开发的</font></font><a href="https://github.com/usdot-fhwa-stol/carma-simulation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CARMA XiL 工具接口，以支持 CDA 功能的更高级模拟测试。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA 的主要特点是：</font></font></p>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">研究管道</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：OpenCDA 提供了丰富的研究管道（即基础和高级 CDA 模块的开源代码，例如队列、协作感知）。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集成</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：OpenCDA 分别使用 CARLA 和 SUMO，也将它们集成在一起。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全栈仿真</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：OpenCDA提供了一个简单的原型自动驾驶和协同驾驶平台，</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全部采用Python语言</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，包含感知、定位、规划、控制和V2X通信模块。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模块化</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：OpenCDA 是高度模块化的。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基准</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：OpenCDA 提供基准测试场景、基准基线图、最先进的基准算法和基准评估指标。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">连接与合作</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：OpenCDA 支持模拟中 CAV 之间各种级别和类别的合作。这将 OpenCDA 与其他单一车辆仿真工具区分开来。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户可以参考</font></font><a href="https://opencda-documentation.readthedocs.io/en/latest/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA 文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解更多详细信息。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-whats-new" class="anchor" aria-hidden="true" tabindex="-1" href="#whats-new"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">什么是新的</font></font></h2>
+<h3 tabindex="-1" dir="auto"><a id="user-content-march-2023" class="anchor" aria-hidden="true" tabindex="-1" href="#march-2023"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2023 年 3 月</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA 现在支持 Docker 安装！非常感谢@GoodarzMehr！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA使配置系统变得更好！我们提供了一个</font></font><code>default.yaml</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">适用于所有场景的模板。用户现在只能更改与默认参数不同的部分，这使得配置文件更加清晰。</font></font></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-jan-2023" class="anchor" aria-hidden="true" tabindex="-1" href="#jan-2023"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2023 年 1 月</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的论文</font></font><a href="https://ieeexplore.ieee.org/document/10045043" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The OpenCDA Open-source Ecosystem for Cooperative Driving Automation Research</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+已被</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IEEE Transactions on Intelligence Vehicles</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接收。我们将原始 OpenCDA 模拟框架的范围扩展到一个生态系统，其中包含模型动物园、一套不同分辨率的驾驶模拟器、大规模真实世界和模拟数据集、用于基准训练/测试的完整开发工具包、和场景数据库/生成器。</font></font></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-july-2022" class="anchor" aria-hidden="true" tabindex="-1" href="#july-2022"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2022 年 7 月</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 OpenCDA 的支持下，我们的论文</font></font><a href="https://arxiv.org/pdf/2203.10638.pdf" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">V2X-ViT：Vehicle-to-Everything Cooperative Perception with Vision Transformer</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已被</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ECCV2022</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接受！如果有兴趣，</font><font style="vertical-align: inherit;">请检查代码库</font></font><a href="https://github.com/DerrickXuNu/v2x-vit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">v2x-vit</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-march-2022" class="anchor" aria-hidden="true" tabindex="-1" href="#march-2022"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2022 年 3 月</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高精地图管家上线！目前它支持生成栅格化地图，其中包括实时道路拓扑、交通灯信息和每个车周围的动态对象。这可以用于 RL 规划、高清地图学习、场景理解等。</font></font></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-feb-2022" class="anchor" aria-hidden="true" tabindex="-1" href="#feb-2022"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2022 年 2 月</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的论文</font></font><a href="https://arxiv.org/abs/2109.07644" rel="nofollow"><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication</font></font></em></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+已被 ICRA 2022 接受！它利用了OpenCDA中的离线协作感知（数据转储）功能。</font><font style="vertical-align: inherit;">如果有兴趣，请检查 OPV2V 的</font><font style="vertical-align: inherit;">基准代码库</font></font><a href="https://github.com/DerrickXuNu/OpenCOOD"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCOOD 。</font></font></a><font style="vertical-align: inherit;"></font></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-oct-2021" class="anchor" aria-hidden="true" tabindex="-1" href="#oct-2021"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2021 年 10 月</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在支持 CARLA 0.9.12；支持不同的天气条件。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持更好的交通管理：用户现在可以为背景汽车设置自定义范围。</font></font></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-major-components" class="anchor" aria-hidden="true" tabindex="-1" href="#major-components"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主要成分</font></font></h2>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/ucla-mobility/OpenCDA/blob/main/docs/md_files/images/OpenCDA_new_diagrams.png"><img src="/ucla-mobility/OpenCDA/raw/main/docs/md_files/images/OpenCDA_new_diagrams.png" alt="预告片" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA由四个主要组件组成：</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协同驱动系统</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、  </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协同仿真工具</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据管理器和存储库</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以及  </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">场景管理器</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看</font></font><a href="https://opencda-documentation.readthedocs.io/en/latest/md_files/introduction.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA 简介</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以获取更多详细信息。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-get-started" class="anchor" aria-hidden="true" tabindex="-1" href="#get-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开始使用</font></font></h2>
+<p dir="auto"><animated-image data-catalyst=""><a target="_blank" rel="noopener noreferrer" href="/ucla-mobility/OpenCDA/blob/main/docs/md_files/images/platoon_joining_2lanefree_complete.gif" data-target="animated-image.originalLink"><img src="/ucla-mobility/OpenCDA/raw/main/docs/md_files/images/platoon_joining_2lanefree_complete.gif" alt="预告片" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://github.com/ucla-mobility/OpenCDA/blob/main/docs/md_files/images/platoon_joining_2lanefree_complete.gif" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="teaser" class="AnimatedImagePlayer-animatedImage" src="https://github.com/ucla-mobility/OpenCDA/raw/main/docs/md_files/images/platoon_joining_2lanefree_complete.gif" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="600" height="338"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="Play teaser" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="Play teaser">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="Open teaser in new window" class="AnimatedImagePlayer-button" href="https://github.com/ucla-mobility/OpenCDA/blob/main/docs/md_files/images/platoon_joining_2lanefree_complete.gif" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-users-guide" class="anchor" aria-hidden="true" tabindex="-1" href="#users-guide"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户手册</font></font></h3>
+<ul dir="auto">
+<li><a href="https://opencda-documentation.readthedocs.io/en/latest/md_files/introduction.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概述</font></font></a></li>
+<li><a href="https://opencda-documentation.readthedocs.io/en/latest/md_files/installation.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font></font></a></li>
+<li><a href="https://opencda-documentation.readthedocs.io/en/latest/md_files/getstarted.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速开始</font></font></a></li>
+<li><a href="https://opencda-documentation.readthedocs.io/en/latest/md_files/logic_flow.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑流程</font></font></a></li>
+<li><a href="https://opencda-documentation.readthedocs.io/en/latest/md_files/traffic_generation.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">流量生成</font></font></a></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意：我们不断改进 OpenCDA 的性能。目前主要在我们的定制地图和卡拉town06地图上进行测试；因此，我们</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">保证其他地图具有相同水平的稳健性。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-developer-guide" class="anchor" aria-hidden="true" tabindex="-1" href="#developer-guide"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发者指南</font></font></h3>
+<ul dir="auto">
+<li><a href="https://opencda-documentation.readthedocs.io/en/latest/md_files/developer_tutorial.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">班级设计</font></font></a></li>
+<li><a href="https://opencda-documentation.readthedocs.io/en/latest/md_files/customization.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">定制您的算法</font></font></a></li>
+<li><a href="https://opencda-documentation.readthedocs.io/en/latest/modules.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">API参考</font></font></a> <br></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-contribution-rule" class="anchor" aria-hidden="true" tabindex="-1" href="#contribution-rule"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献规则</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们欢迎您的贡献。</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请通过提交问题来报告错误和改进。</font></font></li>
+<li><font style="vertical-align: inherit;"></font><a href="https://github.com/ucla-mobility/OpenCDA/pulls"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用拉取请求</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提交您的贡献</font><font style="vertical-align: inherit;">。请使用</font></font><a href="/ucla-mobility/OpenCDA/blob/main/.github/PR_TEMPLATE.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此模板</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来处理您的拉取请求。</font></font></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-citation" class="anchor" aria-hidden="true" tabindex="-1" href="#citation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引文</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您使用我们的 OpenCDA 框架或代码进行开发，请引用以下论文：</font></font></p>
+<div class="highlight highlight-text-bibtex notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-k">@inproceedings</span>{<span class="pl-en">xu2021opencda</span>,
+ <span class="pl-s">title</span>=<span class="pl-s"><span class="pl-pds">{</span>OpenCDA: an open cooperative driving automation framework integrated with co-simulation<span class="pl-pds">}</span></span>,
+ <span class="pl-s">author</span>=<span class="pl-s"><span class="pl-pds">{</span>Xu, Runsheng and Guo, Yi and Han, Xu and Xia, Xin and Xiang, Hao and Ma, Jiaqi<span class="pl-pds">}</span></span>,
+ <span class="pl-s">booktitle</span>=<span class="pl-s"><span class="pl-pds">{</span>2021 IEEE International Intelligent Transportation Systems Conference (ITSC)<span class="pl-pds">}</span></span>,
+ <span class="pl-s">pages</span>=<span class="pl-s"><span class="pl-pds">{</span>1155--1162<span class="pl-pds">}</span></span>,
+ <span class="pl-s">year</span>=<span class="pl-s"><span class="pl-pds">{</span>2021<span class="pl-pds">}</span></span>,
+ <span class="pl-s">organization</span>=<span class="pl-s"><span class="pl-pds">{</span>IEEE<span class="pl-pds">}</span></span>
+}</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="@inproceedings{xu2021opencda,
+ title={OpenCDA: an open cooperative driving automation framework integrated with co-simulation},
+ author={Xu, Runsheng and Guo, Yi and Han, Xu and Xia, Xin and Xiang, Hao and Ma, Jiaqi},
+ booktitle={2021 IEEE International Intelligent Transportation Systems Conference (ITSC)},
+ pages={1155--1162},
+ year={2021},
+ organization={IEEE}
+}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">论文的 arxiv 链接：   </font></font><a href="https://arxiv.org/abs/2107.06260" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https ://arxiv.org/abs/2107.06260</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此外，根据本许可证，OpenCDA 仅用于非商业研究。研究人员只能出于自己的研究目的修改源代码。本许可证禁止产生公司收入和其他一般商业用途的合同工作。有关详细信息和可能的商业用途机会，请参阅许可证文件。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-contributors" class="anchor" aria-hidden="true" tabindex="-1" href="#contributors"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献者</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenCDA 主要由</font></font><a href="https://mobility-lab.seas.ucla.edu/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">UCLA Mobility Lab</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提供支持。</font></font><br></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-lab-principal-investigator" class="anchor" aria-hidden="true" tabindex="-1" href="#lab-principal-investigator"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实验室首席研究员：</font></font></h3>
+<ul dir="auto">
+<li>Dr. Jiaqi Ma (<a href="https://www.linkedin.com/in/jiaqi-ma-17037838/" rel="nofollow">linkedin</a>,
+<a href="https://samueli.ucla.edu/people/jiaqi-ma/" rel="nofollow">UCLA Samueli</a>)</li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-project-lead-" class="anchor" aria-hidden="true" tabindex="-1" href="#project-lead-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目负责人：</font></font><br></h3>
+<ul dir="auto">
+<li>Runsheng Xu (<a href="https://www.linkedin.com/in/runsheng-xu/" rel="nofollow">linkedin</a>, <a href="https://github.com/DerrickXuNu">github</a>)  <br></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-team-members" class="anchor" aria-hidden="true" tabindex="-1" href="#team-members"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">团队成员：</font></font></h3>
+<ul dir="auto">
+<li>Xu Han (<a href="https://linkedin.com/in/xu-han-12851a64" rel="nofollow">linkedin</a>, <a href="https://github.com/xuhan417">github</a>)</li>
+<li>Hao Xiang (<a href="https://www.linkedin.com/in/hao-xiang-42bb5a1b2/" rel="nofollow">linkedin</a>, <a href="https://github.com/XHwind">github</a>)</li>
+<li>Zhaoliang Zheng(<a href="https://www.linkedin.com/in/zhaoliang-zheng-905532171/" rel="nofollow">linkedin</a></li>
+<li>Zonglin Meng(<a href="https://www.linkedin.com/in/zonglin-meng-a393b31ab/" rel="nofollow">linkedin</a></li>
+<li>Dr. Xin Xia (<a href="https://www.linkedin.com/in/yi-guo-4008baaa/" rel="nofollow">linkedin</a>)</li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-external-contributor-acknowledgements" class="anchor" aria-hidden="true" tabindex="-1" href="#external-contributor-acknowledgements"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">外部贡献者致谢</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们要感谢加州大学戴维斯分校</font></font><a href="https://faculty.engineering.ucdavis.edu/jzhang/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">张俊山</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">教授团队做出的巨大贡献，特别是</font></font><a href="https://scholar.google.com.au/citations?user=zbqNhWwAAAAJ&amp;hl=en" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">邵伟博</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">士，他在此次合作中发挥了至关重要的作用。他们的专业知识实现了 openScenario 与 OpenCDA 的无缝集成。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们要感谢@GoodarzMehr 在创建 OpenCDA Dockerfile 方面做出的杰出贡献。</font></font></li>
+</ul>
+</article></div>
